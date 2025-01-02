@@ -26,6 +26,20 @@ This project implements a Hadoop-based Movie Recommendation System using the [Mo
 - **MapReduce**: The processing model used to process data.
 - **Linux (Ubuntu)**: Operating System.
 
+## Dataset structure and details
+
+The dataset used in this project is the [MovieLens](https://grouplens.org/datasets/movielens/) dataset (version [32M](https://files.grouplens.org/datasets/movielens/ml-32m.zip)). It consists of several CSV files, including `ratings.csv`, which is the main file processed by this MapReduce job.
+
+**Sample of `ratings.csv`**
+
+| userId | movieId | rating | timestamp |
+|--------|---------|--------|-----------|
+| 1      | 17      | 4.0    | 944249077 |
+| 1      | 25      | 1.0    | 944250228 |
+| 1      | 29      | 2.0    | 943230976 |
+| 1      | 30      | 5.0    | 944249077 |
+| 1      | 32      | 5.0    | 943228858 |
+
 ## Getting Started
 
 To get started with this project, follow the steps below.
@@ -41,7 +55,7 @@ To get started with this project, follow the steps below.
 1. Clone this repository:
 
    ```bash
-   git clone URL
+   git clone https://github.com/chouaib-629/MovieRecommendation.git
    ```
 
 2. Navigate to the project directory:
