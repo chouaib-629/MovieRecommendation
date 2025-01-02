@@ -1,6 +1,6 @@
 # Movie Recommendation System
 
-This project implements a Hadoop-based Movie Recommendation System using the MovieLens dataset. It utilizes MapReduce for processing data and applying algorithms for generating movie recommendations based on user ratings. The data processing pipeline sorts ratings data in descending order to assist with the recommendation process.
+This project implements a Hadoop-based Movie Recommendation System using the [MovieLens](https://grouplens.org/datasets/movielens/) dataset. It utilizes MapReduce for processing data and applying algorithms for generating movie recommendations based on user ratings. The data processing pipeline sorts ratings data in descending order to assist with the recommendation process.
 
 ## Table of Contents
 
