@@ -7,6 +7,7 @@ This project implements a Hadoop-based Movie Recommendation System using the [Mo
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
+- [Dataset Structure](#dataset-structure)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [Contact Information](#contact-information)
@@ -26,7 +27,7 @@ This project implements a Hadoop-based Movie Recommendation System using the [Mo
 - **MapReduce**: The processing model used to process data.
 - **Linux (Ubuntu)**: Operating System.
 
-## Dataset structure and details
+## Dataset Structure
 
 The dataset used in this project is the [MovieLens](https://grouplens.org/datasets/movielens/) dataset (version [32M](https://files.grouplens.org/datasets/movielens/ml-32m.zip)). It consists of several CSV files, including `ratings.csv`, which is the main file processed by this MapReduce job.
 
@@ -76,25 +77,25 @@ To get started with this project, follow the steps below.
     jar cf movieRating.jar -C compiled_classes/ .
     ```
 
-5. Copy the `ratings.csv` file from the [MovieLens](https://grouplens.org/datasets/movielens/) dataset into the working folder:
+## Usage
 
-    Ensure you have copied the `ratings.csv` file into the working folder before running the job.
+### Step 1: Prepare the Dataset
 
-6. Create a folder in HDFS called `movies`:
+1. Copy the `ratings.csv` file from the [MovieLens](https://grouplens.org/datasets/movielens/) dataset into the working folder.
 
-    Before uploading the dataset, create a folder in HDFS to store the data.
+2. Create a folder in HDFS to store the dataset:
 
     ```bash
     hdfs dfs -mkdir /movies
     ```
 
-7. Copy the `ratings.csv` file to HDFS:
+3. Upload the `ratings.csv` file to HDFS:
 
     ```bash
     hdfs dfs -put ratings.csv /movies/ratings.csv
     ```
 
-## Usage
+### Step 2: Run the MapReduce Job
 
 Run the Hadoop job using the following command:
 
@@ -102,21 +103,24 @@ Run the Hadoop job using the following command:
 hadoop jar movieRating.jar Driver /movies/ratings.csv /movies/tmpOutput /movies/finalOutput
 ```
 
-To view the results of the MapReduce job, use the following command to visualize the output:
+### Step 3: Visualize the Output
+
+To view the results of the MapReduce job, use the following command:
 
 ```bash
 hdfs dfs -cat /movies/finalOutput/part-r-00000
 ```
 
-**Optional:** Copy the part-r-00000 from HDFS to Local Storage.
+### **Optional:** Save the Output Locally
 
-After the job has completed, you can copy the resulting `part-r-00000` file from HDFS to your local storage for further processing or analysis. Use the following command:
+Copy the output file from HDFS to your local storage for further processing or analysis:
+
 
 ```bash
 hdfs dfs -get /movies/finalOutput/part-r-00000 output/result.csv
 ```
 
-This will copy the `part-r-00000` file to the `output/result.csv` file in your local storage.
+This will save the results to the `output/result.csv` file in your local storage.
 
 ## Contributing
 
